@@ -4,8 +4,9 @@ readActiveTwo <- function(con, channel_num, sample_num) {
   ### example: con <- socketConnection(host="localhost", port=778, server=FALSE, blocking=TRUE, open="rb")
   # channel_num = number of channels in each tcp package
   # sample_num = number of samples-per-channel in each package
-  # read binary data: each 8-bit integer separately
   # returns one tcp package of data in matrix from active two, with rows = channels, cols = samples
+  
+  # read binary data: each 8-bit integer separately
   bin_in <- readBin(con    = con,
                     what   = integer(),
                     n      = 3*sample_num*channel_num,
